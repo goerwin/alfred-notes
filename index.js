@@ -17,6 +17,7 @@ const files = fs
   .filter((file) => /\.md$/.test(file))
   .map((file) => ({
     title: file,
+    type: 'file:skipcheck',
     variables: { noteFilePath: path.resolve(notesFolderPath, file) },
   }));
 
@@ -27,6 +28,7 @@ const defaultNoteFilePath = path.resolve(notesFolderPath, defaultNoteFilename);
 if (!userInput)
   matches.unshift({
     title: `Open ${defaultNoteFilename}`,
+    type: 'file:skipcheck',
     variables: { noteFilePath: defaultNoteFilePath },
   });
 else {
