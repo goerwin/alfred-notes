@@ -50,7 +50,32 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
+				<string>6CA1CD56-B1F4-4C91-9DB7-9CC4164A04F2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>2910E3DF-95E8-4768-95E0-91A3FF1FFA68</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>DDCA4683-5844-4934-AAFE-73D7CAC09CF8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>6CA1CD56-B1F4-4C91-9DB7-9CC4164A04F2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CEADA610-CAB2-4EE2-BEE3-B22809883530</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -148,6 +173,50 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Cache removed!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>CEADA610-CAB2-4EE2-BEE3-B22809883530</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node actions.js</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6CA1CD56-B1F4-4C91-9DB7-9CC4164A04F2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -181,7 +250,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string></string>
+				<string>Notes</string>
 				<key>type</key>
 				<integer>5</integer>
 				<key>withspace</key>
@@ -201,17 +270,31 @@
 				<array>
 					<dict>
 						<key>inputstring</key>
-						<string></string>
+						<string>{var:action}</string>
 						<key>matchcasesensitive</key>
 						<false/>
 						<key>matchmode</key>
 						<integer>0</integer>
 						<key>matchstring</key>
-						<string></string>
+						<string>openFile</string>
 						<key>outputlabel</key>
 						<string>Open note file</string>
 						<key>uid</key>
 						<string>6E7C62F6-48BD-4CC3-A114-CC73AAC4614B</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:action}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>removeCache</string>
+						<key>outputlabel</key>
+						<string>Remove cache</string>
+						<key>uid</key>
+						<string>2910E3DF-95E8-4768-95E0-91A3FF1FFA68</string>
 					</dict>
 				</array>
 				<key>elselabel</key>
@@ -298,32 +381,39 @@ printf "%b\n" "$query"</string>
 		<key>297B0D9E-36FD-496E-A9E8-6A49B439212E</key>
 		<dict>
 			<key>xpos</key>
-			<real>610</real>
+			<real>670</real>
 			<key>ypos</key>
-			<real>275</real>
+			<real>390</real>
 		</dict>
 		<key>324A8A9A-5AC8-4B5E-A368-99FC7BA662CD</key>
 		<dict>
 			<key>note</key>
 			<string>Always open the notes folder first in VS Code, so that when a note file is opened, it will open it in the same window</string>
 			<key>xpos</key>
-			<real>440</real>
+			<real>500</real>
 			<key>ypos</key>
-			<real>45</real>
+			<real>55</real>
 		</dict>
 		<key>5710F582-2823-4FB7-B22F-09256744E597</key>
 		<dict>
 			<key>xpos</key>
-			<real>610</real>
+			<real>670</real>
 			<key>ypos</key>
-			<real>75</real>
+			<real>85</real>
 		</dict>
 		<key>5C22BBB9-D174-462A-AD85-BF31AC979FE4</key>
 		<dict>
 			<key>xpos</key>
 			<real>280</real>
 			<key>ypos</key>
-			<real>180</real>
+			<real>255</real>
+		</dict>
+		<key>6CA1CD56-B1F4-4C91-9DB7-9CC4164A04F2</key>
+		<dict>
+			<key>xpos</key>
+			<real>500</real>
+			<key>ypos</key>
+			<real>250</real>
 		</dict>
 		<key>79FE99A8-CED4-4EC1-9634-BF1C0BE76E07</key>
 		<dict>
@@ -332,30 +422,37 @@ printf "%b\n" "$query"</string>
 
 No need it for now it seems</string>
 			<key>xpos</key>
-			<real>525</real>
+			<real>50</real>
 			<key>ypos</key>
-			<real>430</real>
+			<real>480</real>
 		</dict>
 		<key>C58F718F-7037-441E-927A-B23AF2E6D59A</key>
 		<dict>
 			<key>xpos</key>
-			<real>700</real>
+			<real>760</real>
 			<key>ypos</key>
-			<real>45</real>
+			<real>55</real>
+		</dict>
+		<key>CEADA610-CAB2-4EE2-BEE3-B22809883530</key>
+		<dict>
+			<key>xpos</key>
+			<real>670</real>
+			<key>ypos</key>
+			<real>250</real>
 		</dict>
 		<key>D060735C-3DA9-4CD0-A082-965713F92816</key>
 		<dict>
 			<key>xpos</key>
-			<real>115</real>
+			<real>110</real>
 			<key>ypos</key>
-			<real>160</real>
+			<real>250</real>
 		</dict>
 		<key>DDCA4683-5844-4934-AAFE-73D7CAC09CF8</key>
 		<dict>
 			<key>xpos</key>
-			<real>440</real>
+			<real>500</real>
 			<key>ypos</key>
-			<real>275</real>
+			<real>390</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
