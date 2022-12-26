@@ -1,26 +1,26 @@
-import alfy from 'alfy';
+import alfy, { ScriptFilterItem } from 'alfy';
 import fs from 'fs';
 import path from 'path';
 
 const defaultNoteFilename = process.env.defaultNoteFilename;
-let notesFolderPath = process.env.notesFolderPath;
-let homePath = process.env.HOME;
+const notesFolderPath = process.env.notesFolderPath;
+const homePath = process.env.HOME;
 
 if (!homePath) throw new Error('No env HOME set');
-if (!notesFolderPath) throw new Error('No env notesFolderPath set');
+if (notesFolderPath === undefined)
+  throw new Error('No env notesFolderPath set');
 if (!defaultNoteFilename) throw new Error('No env defaultNoteFilename set');
 
-notesFolderPath = notesFolderPath.replace('~', homePath);
+const notesFolderParsedPath = notesFolderPath.replace('~', homePath);
 
-let files;
+let files: ScriptFilterItem[] | undefined = alfy.cache.get('files');
 
-if (alfy.cache.has('files')) files = alfy.cache.get('files');
-else {
+if (!files) {
   files = fs
-    .readdirSync(notesFolderPath)
+    .readdirSync(notesFolderParsedPath)
     .filter((file) => /\.md$/.test(file))
     .map((file) => {
-      const noteFilePath = path.resolve(notesFolderPath, file);
+      const noteFilePath = path.resolve(notesFolderParsedPath, file);
 
       return {
         title: file,
@@ -35,7 +35,10 @@ else {
 
 const userInput = alfy.input;
 const matches = alfy.matches(userInput, files, 'title');
-const defaultNoteFilePath = path.resolve(notesFolderPath, defaultNoteFilename);
+const defaultNoteFilePath = path.resolve(
+  notesFolderParsedPath,
+  defaultNoteFilename
+);
 
 if (!userInput)
   matches.unshift(
@@ -54,7 +57,7 @@ else {
 
   matches.push({
     title: 'Add new note',
-    subtitle: `"${previewText}" to ${notesFolderPath}`,
+    subtitle: `"${previewText}" to ${notesFolderParsedPath}`,
     arg: userInput,
     variables: { noteFilePath: defaultNoteFilePath },
   });
