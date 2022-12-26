@@ -1,14 +1,19 @@
 {
   "name": "alfred-notes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Manage and sync notes with your editor",
+  "homepage": "https://github.com/goerwin/alfred-notes",
+  "author": {
+    "name": "Erwin G"
+  },
   "type": "module",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "alfy": "^1.1.0"
