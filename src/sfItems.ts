@@ -46,7 +46,7 @@ const userInput = process.argv.slice(2).join(' ').trim();
 
 const matches: AlfredListItem[] = files
   .filter((it) => it.title.toLowerCase().includes(userInput.toLowerCase()))
-  .sort();
+  .sort((a, b) => (a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1));
 
 if (!userInput)
   matches.unshift({
