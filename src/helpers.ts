@@ -1,5 +1,7 @@
+import { type AlfredListItem } from './sfItems';
+
 export function outputAlfredItems(
-  items: Record<string, any>[],
+  items: AlfredListItem[],
   additionals: Record<string, any> = {}
 ) {
   console.log(

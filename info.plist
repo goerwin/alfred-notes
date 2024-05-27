@@ -104,12 +104,12 @@
 				<key>openwith</key>
 				<string>/Applications/Visual Studio Code.app</string>
 				<key>sourcefile</key>
-				<string>{var:notesFolderPath}</string>
+				<string></string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openfile</string>
 			<key>uid</key>
-			<string>324A8A9A-5AC8-4B5E-A368-99FC7BA662CD</string>
+			<string>C58F718F-7037-441E-927A-B23AF2E6D59A</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -119,12 +119,12 @@
 				<key>openwith</key>
 				<string>/Applications/Visual Studio Code.app</string>
 				<key>sourcefile</key>
-				<string></string>
+				<string>{var:notesFolderPath}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openfile</string>
 			<key>uid</key>
-			<string>C58F718F-7037-441E-927A-B23AF2E6D59A</string>
+			<string>324A8A9A-5AC8-4B5E-A368-99FC7BA662CD</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -173,8 +173,7 @@
 				<key>runningsubtext</key>
 				<string>Loading...</string>
 				<key>script</key>
-				<string>nodePath="${nodePath/#\~/$HOME}"
-"$nodePath" dist/sfItems.js "$1"</string>
+				<string>node dist/sfItems.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -282,6 +281,11 @@ printf "%b\n" "$query"</string>
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict>
+				<key>unstackview</key>
+				<false/>
+			</dict>
 			<key>type</key>
 			<string>alfred.workflow.utility.hidealfred</string>
 			<key>uid</key>
@@ -364,16 +368,10 @@ No need it for now it seems</string>
 	<key>variables</key>
 	<dict>
 		<key>defaultNoteFilename</key>
-		<string>notes.md</string>
-		<key>nodePath</key>
-		<string>~/.nvm/versions/node/v16.6.1/bin/node</string>
+		<string>_notes.md</string>
 		<key>notesFolderPath</key>
-		<string>~/My Drive/Documents/notes</string>
+		<string>~/Google Drive/My Drive/Notes</string>
 	</dict>
-	<key>variablesdontexport</key>
-	<array>
-		<string>notesFolderPath</string>
-	</array>
 	<key>version</key>
 	<string></string>
 	<key>webaddress</key>

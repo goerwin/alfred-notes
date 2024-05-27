@@ -2,6 +2,16 @@ import fs from 'fs';
 import path from 'path';
 import { outputAlfredItems } from './helpers';
 
+export type AlfredListItem = {
+  title: string;
+  subtitle?: string;
+  arg?: string;
+  variables: {
+    action?: string;
+    noteFilePath: string;
+  };
+};
+
 const defaultNoteFilename = process.env.defaultNoteFilename;
 const notesFolderPath = process.env.notesFolderPath;
 const homePath = process.env.HOME;
@@ -27,8 +37,6 @@ const files = fs
     };
   });
 
-// const userInput = alfy.input;
-// const matches = alfy.matches(userInput, files, 'title');
 const defaultNoteFilePath = path.resolve(
   notesFolderParsedPath,
   defaultNoteFilename
@@ -36,9 +44,9 @@ const defaultNoteFilePath = path.resolve(
 
 const userInput = process.argv.slice(2).join(' ').trim();
 
-const matches: any = files.filter((it) =>
-  it.title.toLowerCase().includes(userInput.toLowerCase())
-);
+const matches: AlfredListItem[] = files
+  .filter((it) => it.title.toLowerCase().includes(userInput.toLowerCase()))
+  .sort();
 
 if (!userInput)
   matches.unshift({
